@@ -914,6 +914,17 @@ header.top .wrap{height:88px}
 /* logo v7 (raster): no escuro, sobre placa clara */
 .h2logo img.only-dark{background:#f7f1e8;border-radius:22px;padding:18px 22px;box-sizing:border-box}
 .brand .emb{height:56px}
+
+/* escuro: degradês que quebram o marrom (oliva, ocre, água do rio) */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--dg-hero:radial-gradient(70% 90% at 88% 18%,rgba(229,151,26,.22),transparent 60%),radial-gradient(60% 80% at 0% 100%,rgba(122,146,82,.38),transparent 65%),linear-gradient(160deg,#4a3324 0%,#3f3a27 55%,#33402f 100%);--dg-team:linear-gradient(135deg,#3a4630 0%,#40402b 50%,#4a3628 100%);--dg-eco:radial-gradient(80% 120% at 100% 0%,rgba(141,179,171,.22),transparent 60%),linear-gradient(120deg,#5a3a24 0%,#6b4528 45%,#4e5a35 100%);--dg-exp:linear-gradient(200deg,#2f4542 0%,#3b3f2d 50%,#4a3426 100%);--dg-foot:linear-gradient(180deg,#3b3626 0%,#2f3a2c 100%);--dg-ph:radial-gradient(60% 120% at 92% 0%,rgba(229,151,26,.16),transparent 60%),linear-gradient(170deg,#4a3324 0%,#3c4430 100%);--dg-util:linear-gradient(90deg,#3c2a1d,#3b4330)}}
+:root[data-theme="dark"]{--dg-hero:radial-gradient(70% 90% at 88% 18%,rgba(229,151,26,.22),transparent 60%),radial-gradient(60% 80% at 0% 100%,rgba(122,146,82,.38),transparent 65%),linear-gradient(160deg,#4a3324 0%,#3f3a27 55%,#33402f 100%);--dg-team:linear-gradient(135deg,#3a4630 0%,#40402b 50%,#4a3628 100%);--dg-eco:radial-gradient(80% 120% at 100% 0%,rgba(141,179,171,.22),transparent 60%),linear-gradient(120deg,#5a3a24 0%,#6b4528 45%,#4e5a35 100%);--dg-exp:linear-gradient(200deg,#2f4542 0%,#3b3f2d 50%,#4a3426 100%);--dg-foot:linear-gradient(180deg,#3b3626 0%,#2f3a2c 100%);--dg-ph:radial-gradient(60% 120% at 92% 0%,rgba(229,151,26,.16),transparent 60%),linear-gradient(170deg,#4a3324 0%,#3c4430 100%);--dg-util:linear-gradient(90deg,#3c2a1d,#3b4330)}
+.hero2{background-image:var(--dg-hero,none)}
+.sec.team{background-image:var(--dg-team,none)}
+.eco-band{background-image:var(--dg-eco,none)}
+.sec.explore-sec{background-image:var(--dg-exp,none)}
+footer{background-image:var(--dg-foot,none)}
+.page-hero{background-image:var(--dg-ph,none)}
+.util{background-image:var(--dg-util,none)}
 </style>
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
