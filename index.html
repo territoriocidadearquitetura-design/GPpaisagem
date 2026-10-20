@@ -968,6 +968,7 @@ html[lang=es] header.top .brand .bt small,html[lang=en] header.top .brand .bt sm
 .brand .bt small{width:0;min-width:100%;white-space:nowrap;overflow:hidden}
 @media (max-width:420px){.util .lang{padding-left:6px;margin-left:4px;gap:1px}.util .lang button{padding:4px 5px;font-size:10.5px}}
 @media (max-width:400px){header.top .brand .emb{height:30px}header.top .brand{gap:6px}header.top .iconbtn{width:32px;height:32px}}
+@media (min-width:1280px){header.top nav.main a{font-size:var(--nf,13.5px);padding-left:var(--np,9px);padding-right:var(--np,9px)}}
 </style>
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -2228,6 +2229,19 @@ function fit(){if(busy)return;busy=true;sm.style.letterSpacing='';sm.style.fontS
 new MutationObserver(fit).observe(sm,{childList:true,characterData:true,subtree:true});
 if(window.ResizeObserver)new ResizeObserver(fit).observe(sm.parentNode);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);fit();})();
+
+/* menu: garante pelo menos 32px entre o nome do grupo e o menu, reduzindo levemente o menu se as fontes ficarem mais largas */
+(function(){const nav=document.querySelector('header.top nav.main'),br=document.querySelector('header.top .brand');if(!nav||!br)return;
+const L=[[13.5,9],[13.5,8],[13,7],[13,6],[12.5,5],[12,4.5],[11.5,4]];let busy=false;
+function fit(){if(busy)return;busy=true;let i=0;
+ const set=k=>{nav.style.setProperty('--nf',L[k][0]+'px');nav.style.setProperty('--np',L[k][1]+'px')};
+ set(0);
+ const ok=()=>{if(getComputedStyle(nav).position!=='static')return true;const a=nav.querySelector('a');if(!a)return true;
+   return a.getBoundingClientRect().left-br.getBoundingClientRect().right>=32&&nav.scrollWidth<=nav.clientWidth+1};
+ while(!ok()&&i<L.length-1){i++;set(i)}
+ busy=false}
+new MutationObserver(fit).observe(nav,{childList:true,characterData:true,subtree:true});
+addEventListener('resize',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);setTimeout(fit,1500);fit();})();
 </script>
 
 </body>
