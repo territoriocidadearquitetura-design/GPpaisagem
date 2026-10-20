@@ -166,6 +166,8 @@ select{padding:11px 34px 11px 14px;border-radius:999px;border:1px solid var(--li
 .item .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .tag{font:500 11px/1 var(--f-mono);letter-spacing:.04em;padding:5px 8px;border-radius:6px;background:var(--river-soft);color:var(--river);white-space:nowrap}
 .tag.q{background:var(--ipe-soft);color:var(--ipe)}
+#facts dd a{color:inherit;text-decoration:underline;text-decoration-color:var(--ipe);text-decoration-thickness:2px;text-underline-offset:3px}
+#facts dd a:hover{color:var(--river)}
 .tag.p{background:transparent;border:1px solid var(--line);color:var(--muted)}
 .olink{display:inline-flex;align-items:center;gap:5px;font:600 11px/1 var(--f-mono);letter-spacing:.04em;padding:5px 9px;border-radius:6px;background:var(--green);color:var(--paper);text-decoration:none;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .olink.pg{background:var(--river)}
@@ -1121,13 +1123,13 @@ const THEMES = [
 ];
 $('#themes').innerHTML = THEMES.map(([i,t,d],k) => `<article class="line"><span class="ln">0${k+1}</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[i]}</svg><h3>${esc(t)}</h3><p>${esc(d)}</p></article>`).join('');
 $('#facts').innerHTML = [
-  ['Nome no CNPq', esc(G.nome)],
+  ['Nome no CNPq', `<a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">${esc(G.nome)} ↗</a>`],
   ['Liderança', esc(G.lider)],
   ['Membros', esc(G.membros)],
-  ['Programa', 'PPGAU · UNIVAG Centro Universitário'],
+  ['Programa', '<a href="https://www.univag-ppgau.com/" target="_blank" rel="noopener">PPGAU · UNIVAG Centro Universitário ↗</a>'],
   ['Área', 'Arquitetura, Cidade e Território'],
-  ['Cadastro', 'Diretório dos Grupos de Pesquisa do CNPq'],
-  ['Parceria', 'ANAP · Associação Amigos da Natureza da Alta Paulista'],
+  ['Cadastro', '<a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">Diretório dos Grupos de Pesquisa do CNPq ↗</a>'],
+  ['Parceria', '<a href="https://educaanap.org.br/" target="_blank" rel="noopener">ANAP · Associação Amigos da Natureza da Alta Paulista ↗</a>'],
 ].map(([k,v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
 
 /* Pesquisadoras */
