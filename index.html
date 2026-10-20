@@ -656,6 +656,12 @@ nav.main a{transition:background .2s,color .2s}
   .person .role,.person .more{justify-self:start}
   .person .mini{justify-content:flex-start}
 }
+/* Tema escuro sóbrio: marinho profundo, títulos claros, dourado como destaque */
+:root{--h-title:var(--river);--h-em:var(--green);--btn-bg:var(--river);--btn-ink:var(--paper);--btn-hover:var(--ink);--rule-1:var(--river)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0b1631;--surface:#111f42;--tint:#0f1c3d;--line:#24345d;--river:#d6e0f5;--river-soft:#1c2c55;--green:#7cc39a;--olive:#7cc39a;--olive-lt:#7cc39a;--muted:#a9b4cc;
+--h-title:#ffffff;--h-em:#febf01;--btn-bg:#febf01;--btn-ink:#02205f;--btn-hover:#ffd24d;--rule-1:#ffffff}}
+:root[data-theme="dark"]{--paper:#0b1631;--surface:#111f42;--tint:#0f1c3d;--line:#24345d;--river:#d6e0f5;--river-soft:#1c2c55;--green:#7cc39a;--olive:#7cc39a;--olive-lt:#7cc39a;--muted:#a9b4cc;
+--h-title:#ffffff;--h-em:#febf01;--btn-bg:#febf01;--btn-ink:#02205f;--btn-hover:#ffd24d;--rule-1:#ffffff}
 /* Versão institucional: fundo claro, sem faixa de paisagem, sem decoração animada */
 .band{display:none!important}
 .util{background:var(--river-ink,#02205f);color:#dfe6f5;font:500 12px/1 var(--f-body);letter-spacing:.02em}
@@ -668,13 +674,13 @@ nav.main a{transition:background .2s,color .2s}
 .hero2 .wrap{padding-block:72px 88px}
 .h2grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}
 .hero2 .eyebrow{color:var(--ipe)}
-.hero2 h1{font:600 clamp(40px,5.2vw,68px)/1.04 var(--f-serif);letter-spacing:-.02em;color:var(--river)}
-.hero2 h1 em{color:var(--green);font-weight:600}
-.hero2 h1::after{content:"";display:block;width:76px;height:4px;margin-top:24px;border-radius:2px;background:linear-gradient(90deg,var(--river) 0 50%,var(--gold) 50% 75%,var(--green) 75%)}
+.hero2 h1{font:600 clamp(40px,5.2vw,68px)/1.04 var(--f-serif);letter-spacing:-.02em;color:var(--h-title)}
+.hero2 h1 em{color:var(--h-em);font-weight:600}
+.hero2 h1::after{content:"";display:block;width:76px;height:4px;margin-top:24px;border-radius:2px;background:linear-gradient(90deg,var(--rule-1) 0 50%,var(--gold) 50% 75%,var(--green) 75%)}
 .hero2 .lead{color:var(--muted)}
 .hero2 .lead strong{color:var(--ink)}
-.hero2 .btn.primary{background:var(--river);border-color:var(--river);color:var(--paper);box-shadow:none}
-.hero2 .btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.hero2 .btn.primary{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-ink);box-shadow:none}
+.hero2 .btn.primary:hover{background:var(--btn-hover);border-color:var(--btn-hover);color:var(--btn-ink)}
 .hero2 .btn.ghost{border-color:var(--river);color:var(--river)}
 .hero2 .btn.ghost:hover{background:var(--river-soft);color:var(--river)}
 .h2logo img{filter:none;animation:none;max-width:580px;margin:0 auto}
@@ -684,8 +690,8 @@ nav.main a{transition:background .2s,color .2s}
 .page-hero{background:var(--tint);color:var(--ink);border-bottom:1px solid var(--line)}
 .ph-in{padding-block:64px 56px}
 .page-hero .eyebrow{color:var(--ipe)}
-.page-hero h2{color:var(--river);font-weight:600}
-.page-hero h2::after{background:linear-gradient(90deg,var(--river) 0 50%,var(--gold) 50% 75%,var(--green) 75%)}
+.page-hero h2{color:var(--h-title);font-weight:600}
+.page-hero h2::after{background:linear-gradient(90deg,var(--rule-1) 0 50%,var(--gold) 50% 75%,var(--green) 75%)}
 .page-hero p{color:var(--muted)}
 footer{background:var(--tint);color:var(--muted);border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--river) 0 55%,var(--gold) 55% 78%,var(--green) 78%) 1;padding-block:0 44px}
 footer .wrap{padding-top:44px}
@@ -701,6 +707,12 @@ footer .foot-nav a{color:var(--ink)}footer .foot-nav a:hover{color:var(--river)}
 footer .foot-tag{color:var(--river)}footer .foot-tag em{color:var(--green)}
 @media (max-width:900px){.h2grid{grid-template-columns:1fr;gap:32px}.hero2 .wrap{padding-block:36px 56px}.h2logo img{max-width:420px}}
 @media (max-width:700px){.ph-in{padding-block:40px 36px}}
+nav.main a.on,.chip[aria-pressed="true"]{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-ink)}
+.sec-head h2,.row-head h2{color:var(--h-title)}
+.sec-head h2::after,.mem-head h3::after{background:linear-gradient(90deg,var(--rule-1) 0 50%,var(--gold) 50% 75%,var(--green) 75%)}
+header.top::after{background:linear-gradient(90deg,var(--rule-1) 0 55%,var(--gold) 55% 78%,var(--green) 78%)}
+footer{border-image:linear-gradient(90deg,var(--rule-1) 0 55%,var(--gold) 55% 78%,var(--green) 78%) 1}
+footer .foot-tag{color:var(--h-title)}footer .foot-tag em{color:var(--h-em)}
 </style>
 
 <div class="util"><div class="wrap"><span>PPGAU · Pós-Graduação em Arquitetura e Urbanismo · UNIVAG</span><span class="r"><a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">Diretório CNPq ↗</a><a href="https://www.univag-ppgau.com/" target="_blank" rel="noopener">PPGAU UNIVAG ↗</a><a href="https://educaanap.org.br/" target="_blank" rel="noopener">ANAP ↗</a></span></div></div>
