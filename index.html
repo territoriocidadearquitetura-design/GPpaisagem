@@ -713,9 +713,46 @@ nav.main a.on,.chip[aria-pressed="true"]{background:var(--btn-bg);border-color:v
 header.top::after{background:linear-gradient(90deg,var(--rule-1) 0 55%,var(--gold) 55% 78%,var(--green) 78%)}
 footer{border-image:linear-gradient(90deg,var(--rule-1) 0 55%,var(--gold) 55% 78%,var(--green) 78%) 1}
 footer .foot-tag{color:var(--h-title)}footer .foot-tag em{color:var(--h-em)}
+
+/* Acessibilidade, busca geral e progresso de leitura */
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--gold);color:#02205f;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus{top:calc(10px + env(safe-area-inset-top,0px))}
+.util .wrap{align-items:center}
+.util .a11y{display:flex;align-items:center;gap:2px;margin-left:auto}
+.util .a11y .lbl{opacity:.75;margin-right:6px}
+.util .a11y button{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;font:600 12px/1 var(--f-body);padding:4px 7px;border-radius:5px;cursor:pointer}
+.util .a11y button:hover,.util .a11y button[aria-pressed="true"]{background:#febf01;border-color:#febf01;color:#02205f}
+@media (max-width:700px){.util .l{display:none}.util .a11y{margin-left:0}}
+.sbtn{width:auto;padding:0 12px 0 11px;gap:8px;display:inline-flex;align-items:center;font:500 13px/1 var(--f-body);color:var(--muted)}
+.sbtn kbd{font:500 11px/1 var(--f-mono);border:1px solid var(--line);border-radius:5px;padding:3px 5px;color:var(--muted)}
+@media (max-width:1240px){.sbtn span,.sbtn kbd{display:none}.sbtn{width:38px;padding:0;justify-content:center}}
+#sdlg{max-width:min(720px,calc(100vw - 24px));margin-top:min(12vh,110px)}
+.sd{display:grid}
+.sd-in{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);color:var(--muted)}
+.sd-in input{flex:1;min-width:0;border:0;background:transparent;font:400 18px/1.3 var(--f-body);color:var(--ink);outline:none}
+.sd-x{font:500 11px/1 var(--f-mono);border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:6px;padding:5px 7px;cursor:pointer}
+.sd-res{max-height:min(60vh,520px);overflow:auto;padding:8px 8px 12px}
+.sd-res h4{font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ipe);margin:14px 10px 6px}
+.sd-res button{display:grid;gap:2px;width:100%;text-align:left;background:transparent;border:0;border-radius:10px;padding:9px 10px;cursor:pointer;color:var(--ink);font:inherit}
+.sd-res button b{font-weight:600;font-size:15px;line-height:1.35}
+.sd-res button span{font-size:13px;color:var(--muted);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sd-res button:hover,.sd-res button.on{background:var(--river-soft)}
+.sd-res mark{background:var(--ipe-soft);color:inherit;border-radius:3px;padding:0 1px}
+.sd-empty{padding:22px 12px;color:var(--muted);font-size:14px}
+.sd-hint{display:flex;flex-wrap:wrap;gap:8px;padding:6px 10px}
+.sd-hint button{display:inline-flex;width:auto;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px}
+.prog{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;z-index:60;pointer-events:none}
+.prog i{display:block;height:100%;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0)}
+.line{cursor:pointer;transition:transform .25s,box-shadow .25s}
+.line:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(2,32,95,.14)}
+.line .more{font-weight:600;font-size:14px;color:var(--river);display:inline-flex;gap:6px;align-items:center;margin-top:4px}
+.line:hover .more{text-decoration:underline;text-underline-offset:3px}
+.line:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+[vw].enabled{z-index:70!important}
 </style>
 
-<div class="util"><div class="wrap"><span>PPGAU · Pós-Graduação em Arquitetura e Urbanismo · UNIVAG</span><span class="r"><a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">Diretório CNPq ↗</a><a href="https://www.univag-ppgau.com/" target="_blank" rel="noopener">PPGAU UNIVAG ↗</a><a href="https://educaanap.org.br/" target="_blank" rel="noopener">ANAP ↗</a></span></div></div>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="util"><div class="wrap"><span class="l">PPGAU · Pós-Graduação em Arquitetura e Urbanismo · UNIVAG</span><span class="a11y" role="group" aria-label="Tamanho do texto"><span class="lbl">Texto</span><button type="button" data-z="-1" aria-label="Diminuir texto">A−</button><button type="button" data-z="0" aria-label="Tamanho padrão do texto">A</button><button type="button" data-z="1" aria-label="Aumentar texto">A+</button></span><span class="r"><a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">Diretório CNPq ↗</a><a href="https://www.univag-ppgau.com/" target="_blank" rel="noopener">PPGAU UNIVAG ↗</a><a href="https://educaanap.org.br/" target="_blank" rel="noopener">ANAP ↗</a></span></div></div>
 </head>
 <body>
 <header class="top">
@@ -736,11 +773,12 @@ footer .foot-tag{color:var(--h-title)}footer .foot-tag em{color:var(--h-em)}
       <a href="#eventos">Eventos</a>
       <a href="#contato">Contato</a>
     </nav>
+    <button class="iconbtn sbtn" id="searchBtn" aria-label="Buscar no site (Ctrl+K)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Buscar</span><kbd>Ctrl K</kbd></button>
     <button class="iconbtn" id="themeBtn" aria-label="Alternar tema claro ou escuro"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
 <div class="page" id="inicio" data-title="Início">
 <section class="hero2">
   <canvas id="topo" aria-hidden="true"></canvas>
@@ -1075,6 +1113,9 @@ footer .foot-tag{color:var(--h-title)}footer .foot-tag em{color:var(--h-em)}
 </footer>
 
 <button class="totop" id="toTop" aria-label="Voltar ao topo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<dialog id="sdlg" aria-label="Buscar no site"><div class="sd"><label class="sd-in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="sq" type="search" placeholder="Buscar pesquisadoras, produção, projetos, eventos…" autocomplete="off" aria-controls="sres"><button type="button" class="sd-x" id="sclose">Esc</button></label><div class="sd-res" id="sres" role="listbox"></div></div></dialog>
+<div class="prog" aria-hidden="true"><i id="progbar"></i></div>
+<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
 <dialog id="dlg" aria-labelledby="dlgName"><div class="dlg" id="dlgIn"></div></dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
@@ -1175,11 +1216,14 @@ const ICONS = {
   map:'<path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2Z"/><path d="M9 4v14M15 6v14"/>'
 };
 const THEMES = [
-  ['leaf','Paisagem urbana e infraestrutura verde','Áreas verdes públicas, parques, praças e espaços livres da cidade.'],
-  ['map','Governança territorial','Planejamento urbano, políticas públicas e gestão do território.'],
-  ['people','Produção e apropriação do espaço urbano','Como o espaço da cidade é produzido, ocupado e usado pela população.'],
+  ['leaf','Paisagem urbana e infraestrutura verde','Áreas verdes públicas, parques, praças e espaços livres da cidade.','paisagem'],
+  ['map','Governança territorial','Planejamento urbano, políticas públicas e gestão do território.','governança'],
+  ['people','Produção e apropriação do espaço urbano','Como o espaço da cidade é produzido, ocupado e usado pela população.','espaço urbano'],
 ];
-$('#themes').innerHTML = THEMES.map(([i,t,d],k) => `<article class="line"><span class="ln">0${k+1}</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[i]}</svg><h3>${esc(t)}</h3><p>${esc(d)}</p></article>`).join('');
+$('#themes').innerHTML = THEMES.map(([i,t,d,q],k) => `<article class="line" tabindex="0" role="link" data-q="${esc(q)}" aria-label="${esc(t)}: ver a produção sobre ${esc(q)}"><span class="ln">0${k+1}</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[i]}</svg><h3>${esc(t)}</h3><p>${esc(d)}</p><span class="more">Ver produção sobre “${esc(q)}” →</span></article>`).join('');
+{ const openQ = el => { const q = el.dataset.q; window.__gpProd(null); $('#pq').value = q; $('#pq').dispatchEvent(new Event('input')); };
+  $('#themes').addEventListener('click', e => { const el = e.target.closest('.line'); if(el) openQ(el); });
+  $('#themes').addEventListener('keydown', e => { const el = e.target.closest('.line'); if(el && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); openQ(el); } }); }
 $('#facts').innerHTML = [
   ['Nome no CNPq', `<a href="http://dgp.cnpq.br/dgp/espelhogrupo/1411340946850321" target="_blank" rel="noopener">${esc(G.nome)} ↗</a>`],
   ['Liderança', esc(G.lider)],
@@ -1752,6 +1796,59 @@ go((location.hash||'#inicio').slice(1), false);
   }
 }
 
+
+/* Busca geral, tamanho do texto, progresso de leitura e VLibras */
+{ const sd = $('#sdlg'), sq = $('#sq'), sr = $('#sres');
+  const norm = t => (t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+  const IDX = [];
+  D.docentes.forEach((d,i) => IDX.push({g:'Pesquisadoras', t:d.nome, s:d.titulacao, k:norm(d.nome+' '+d.titulacao+' '+(d.papel||'')), act:() => { go('pesquisadoras'); openDoc(i); }}));
+  (D.pessoas||[]).forEach(p => IDX.push({g:'Pesquisadores em formação', t:p.n, s:[p.c,p.ti].filter(Boolean).join(' · '), k:norm(p.n+' '+(p.ti||'')), act:() => { go('pesquisadoras'); const m=$('#mq'); m.value=p.n; m.dispatchEvent(new Event('input')); setTimeout(()=>m.scrollIntoView({block:'center'}),60); }}));
+  D.producao.forEach(p => IDX.push({g:'Produção', t:p.ref.length>140?p.ref.slice(0,140)+'…':p.ref, s:[p.ano, CATN[p.cat]||'', p.qualis?'Qualis '+p.qualis:''].filter(Boolean).join(' · '), k:norm(p.ref), q:true}));
+  D.projetos.forEach(p => IDX.push({g:'Projetos', t:p.tit, s:[p.t, p.ini+(p.fim?'–'+p.fim:'–atual')].filter(Boolean).join(' · '), k:norm(p.tit+' '+(p.desc||'')+' '+(p.coord||'')), act:() => { go('projetos'); const j=$('#jq'); j.value=p.tit; j.dispatchEvent(new Event('input')); }}));
+  D.eventos.forEach(e => IDX.push({g:'Eventos', t:e.nome, s:[e.edicao, e.ano, e.local_formato].filter(Boolean).join(' · '), k:norm(e.nome+' '+(e.edicao||'')), act:() => go('eventos')}));
+  [['inicio','Início'],['pesquisadoras','Pesquisadoras'],['producao','Produção'],['rede','Rede de colaboração'],['projetos','Projetos'],['orientacoes','Orientações'],['ecolegal','Jornal Eco Legal'],['eventos','Eventos'],['contato','Contato']].forEach(([id,t]) => IDX.push({g:'Páginas', t, s:'', k:norm(t), act:() => go(id)}));
+  const ORDERG = ['Páginas','Pesquisadoras','Pesquisadores em formação','Projetos','Eventos','Produção'];
+  const hl = (t,ws) => { let h = esc(t); ws.forEach(w => { if(w.length<2) return; const n = norm(t), i = n.indexOf(w); if(i<0) return; h = esc(t.slice(0,i))+'<mark>'+esc(t.slice(i,i+w.length))+'</mark>'+esc(t.slice(i+w.length)); }); return h; };
+  let hits = [], cur = 0, lastQ = '';
+  const render = () => { const q = norm(sq.value.trim()); lastQ = sq.value.trim();
+    if(!q){ sr.innerHTML = '<h4>Sugestões</h4><div class="sd-hint">'+['paisagem','áreas verdes','Cuiabá','governança','Eco Legal','simpósio'].map(w=>`<button type="button" data-w="${esc(w)}">${esc(w)}</button>`).join('')+'</div>'; hits=[]; return; }
+    const ws = q.split(/\s+/);
+    const by = {}; IDX.forEach(it => { if(ws.every(w => it.k.includes(w))) (by[it.g] ||= []).push(it); });
+    hits = []; let html = '';
+    ORDERG.forEach(g => { const a = by[g]; if(!a) return; const lim = g==='Produção'?6:4;
+      html += `<h4>${esc(g)} · ${a.length}</h4>`;
+      a.slice(0,lim).forEach(it => { hits.push(it); html += `<button type="button" role="option" data-h="${hits.length-1}"><b>${hl(it.t,ws)}</b>${it.s?`<span>${esc(String(it.s))}</span>`:''}</button>`; });
+      if(g==='Produção' && a.length>lim){ const it = {q:true, all:true}; hits.push(it); html += `<button type="button" role="option" data-h="${hits.length-1}"><b>Ver as ${a.length} produções com “${esc(lastQ)}” →</b></button>`; }
+    });
+    sr.innerHTML = html || `<div class="sd-empty">Nada encontrado para “${esc(lastQ)}”. Tente outra palavra.</div>`;
+    cur = 0; mark(); };
+  const mark = () => sr.querySelectorAll('[data-h]').forEach(b => b.classList.toggle('on', +b.dataset.h===cur));
+  const pick = i => { const it = hits[i]; if(!it) return; sd.close();
+    if(it.q){ window.__gpProd(null); $('#pq').value = lastQ; $('#pq').dispatchEvent(new Event('input')); } else it.act(); };
+  const open = () => { sq.value=''; render(); sd.showModal(); sq.focus(); };
+  $('#searchBtn').addEventListener('click', open);
+  $('#sclose').addEventListener('click', () => sd.close());
+  sd.addEventListener('click', e => { if(e.target===sd) sd.close(); const w = e.target.closest('[data-w]'); if(w){ sq.value=w.dataset.w; render(); sq.focus(); return; } const b = e.target.closest('[data-h]'); if(b) pick(+b.dataset.h); });
+  let st; sq.addEventListener('input', () => { clearTimeout(st); st = setTimeout(render, 80); });
+  sq.addEventListener('keydown', e => { const n = sr.querySelectorAll('[data-h]').length;
+    if(e.key==='ArrowDown'){ e.preventDefault(); cur = Math.min(n-1,cur+1); mark(); sr.querySelector('.on')?.scrollIntoView({block:'nearest'}); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); cur = Math.max(0,cur-1); mark(); sr.querySelector('.on')?.scrollIntoView({block:'nearest'}); }
+    else if(e.key==='Enter'){ e.preventDefault(); pick(cur); } });
+  addEventListener('keydown', e => { if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); sd.open ? sd.close() : open(); }
+    else if(e.key==='/' && !/input|textarea|select/i.test(document.activeElement.tagName) && !sd.open){ e.preventDefault(); open(); } });
+}
+{ const Z = [1, 1.1, 1.2, 1.3, .92]; let z = 0;
+  try{ z = +localStorage.getItem('gp-zoom') || 0; }catch(e){}
+  const apply = () => { document.body.style.zoom = [0.92,1,1.1,1.2,1.3][z+1]; document.querySelectorAll('.a11y [data-z]').forEach(b => b.setAttribute('aria-pressed', (+b.dataset.z===0 && z===0) || (+b.dataset.z>0 && z>0) || (+b.dataset.z<0 && z<0))); try{ localStorage.setItem('gp-zoom', z); }catch(e){} };
+  document.querySelector('.a11y').addEventListener('click', e => { const b = e.target.closest('[data-z]'); if(!b) return; const d = +b.dataset.z; z = d===0 ? 0 : Math.max(-1, Math.min(3, z + d)); apply(); });
+  apply();
+}
+{ const bar = $('#progbar'); const upd = () => { const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h>0 ? Math.min(1, scrollY/h) : 0})`; };
+  addEventListener('scroll', upd, {passive:true}); addEventListener('resize', upd); upd(); }
+{ const vs = document.createElement('script'); vs.src = 'https://vlibras.gov.br/app/vlibras-plugin.js'; vs.async = true;
+  vs.onload = () => { try{ new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){} };
+  vs.onerror = () => document.querySelector('[vw]')?.remove();
+  document.body.appendChild(vs); }
 $('#fonte').innerHTML = `Fontes: ${esc(D.plat_fonte)}; relatórios do Coleta CAPES 2021–2024; OpenAlex (artigos desde 2025); lista oficial de alunos do PPGAU e Repositório Digital UNIVAG; site do programa. Iniciação científica: ${esc(D.icl_fonte)}.`;
 })();
 </script>
