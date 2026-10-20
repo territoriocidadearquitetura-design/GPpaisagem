@@ -793,6 +793,11 @@ nav.main a{white-space:nowrap;font-size:13.5px;padding:8px 9px}
 @media (max-width:600px){.brand .bt b{font-size:13.5px}.brand .bt small{display:none}.brand .emb{height:38px}header.top .wrap{gap:8px}}
 .ct .copy{flex-wrap:wrap;font-size:12.5px}
 @media (max-width:480px){.brand{gap:7px;min-width:0}.brand .bt{min-width:0}.brand .bt b{font-size:12.5px;white-space:normal;max-width:150px}header.top .iconbtn{width:34px;height:34px}header.top .wrap{gap:6px}}
+/* Nome no cabeçalho com as cores do logo */
+:root{--lg-blue:#02205f;--lg-gold:#b97f00;--lg-green:#1f7a55}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lg-blue:#dbe6ff;--lg-gold:#febf01;--lg-green:#94c463}}
+:root[data-theme="dark"]{--lg-blue:#dbe6ff;--lg-gold:#febf01;--lg-green:#94c463}
+.brand .bt b .w1{color:var(--lg-blue)}.brand .bt b .w2{color:var(--lg-gold)}.brand .bt b .w3{color:var(--lg-green)}
 </style>
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -803,7 +808,7 @@ nav.main a{white-space:nowrap;font-size:13.5px;padding:8px 9px}
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Início">
       <img class="emb" data-logo="emblem" alt="">
-      <span class="bt"><b>Cidade, Sociedade <i>&amp;</i> Paisagem</b><small>Grupo de Pesquisa · PPGAU UNIVAG</small></span>
+      <span class="bt"><b><span class="w1">Cidade,</span> <span class="w2">Sociedade</span> <span class="w3">&amp; Paisagem</span></b><small>Grupo de Pesquisa · PPGAU UNIVAG</small></span>
     </a>
     <button class="iconbtn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="main" id="nav">
